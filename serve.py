@@ -30,9 +30,9 @@ class Root(object):
         return voter['PARTY_AFFILIATION']
 
     headings = [
-        ('D', lambda v: "&#x2713;" if Root.qualified(v) else ""),
-        ('A', affiliation),
-        ('Cty', lambda v: counties.abbrevs[int(v['COUNTY_NUMBER'])-1]),
+        #('D', lambda v: "&#x2713;" if Root.qualified(v) else ""),
+        ('Precinct', lambda v: v['PRECINCT_NAME']),
+        ('County', lambda v: counties.abbrevs[int(v['COUNTY_NUMBER'])-1]),
         ('CD', lambda v: v['CONGRESSIONAL_DISTRICT']),
         ('Name', lambda v: '%s %s' % (v['FIRST_NAME'], v['LAST_NAME'])),
         ('Address', lambda v: '%s %s' % (v['RESIDENTIAL_ADDRESS1'], v['RESIDENTIAL_ZIP'])),
@@ -48,12 +48,12 @@ class Root(object):
         headings = ['<th>%s</th>' % h for h in zip(*self.headings)[0]]
         rows = [['<td>%s</td>' % f(v) for h, f in self.headings] for v in results]
         body = ['<tr>%s</tr>' % ''.join(r) for r in [headings] + rows]
-        table_preamble = '<table border=1>'
+        table_preamble = '<table class="pure-table pure-table-striped">'
         table = [table_preamble, ''.join(body), '</table>']
         return json.dumps(dict(result=''.join(table), reqnum=reqnum))
 
 if __name__ == '__main__':
     cherrypy.config.update({'server.socket_port': int(sys.argv[1]),
-                            'server.socket_host': '0.0.0.0'})
+                            'server.socket_host': '192.168.1.132'})
     cherrypy.quickstart(Root())
         

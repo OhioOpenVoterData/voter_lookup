@@ -1,5 +1,5 @@
 import json, xapian, csv
-from .config import dbpath, fields
+from conf import dbpath, fields
 
 def index_voters(datapath):
     f = open(datapath)
@@ -29,7 +29,7 @@ def index_voters(datapath):
         db.replace_document(voter['SOS_VOTERID'], doc)
 
 def main():
-    from .config import datapaths
+    from conf import datapaths
     for p in datapaths:
         index_voters(p)
     

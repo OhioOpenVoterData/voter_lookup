@@ -1,5 +1,5 @@
 import json, xapian
-from .config import dbpath, fields
+from conf import dbpath, fields
 
 def search(query, active_element, numresults=10):
     # Put active_element at end of query

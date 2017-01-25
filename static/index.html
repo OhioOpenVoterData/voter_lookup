@@ -1,21 +1,30 @@
 <script src="lookup.js"></script>
-
-<body style="font-size:0.5em">
-  <form id="signupform" name="signupform" action="lookup">
-    <input type="number" pattern="[0-9]*" maxlength="5" min="0"
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Montserrat">
+<body style="font-size:1em; font-family:Montserrat !important; background-color: #f44b42;">
+<h1 align="center" style="font-size:5em; background-color:#FFFFFF; font-family:Montserrat !important;">Where am I registered?</h1>  
+ <form class="pure-form pure-form-aligned" id="signupform" name="signupform" action="lookup" style="margin:auto; width: 50%; padding:10px;">
+    <label for="RESIDENTIAL_ZIP">ZIP (5-digit)</label>
+	<input type="number" pattern="[0-9]*" maxlength="5" min="0"
            name="RESIDENTIAL_ZIP" id="RESIDENTIAL_ZIP"
-           placeholder="zip (5-digit)" onkeyup="lookup()" 
-           style="width:3em" autofocus tabindex="1">
-    <input type="text" name="FIRST_NAME" id="FIRST_NAME" placeholder="First name"
+           onkeyup="lookup()" 
+           style="width:8em" autofocus tabindex="1">
+    <label for="FIRST_NAME">First Name</label>
+	<input type="text" name="FIRST_NAME" id="FIRST_NAME"
            onkeyup="lookup()" size="10" tabindex="2">
-    <input type="button" onclick="clear_form(event)" value="clear"
-           tabindex="5" class="exclude">
+	<input type="button" onclick="clear_form(event)" value="clear"
+           tabindex="5"  class="exclude">
     <br/>
-    <input type="text" name="LAST_NAME" id="LAST_NAME" placeholder="Last name"
+    <label for="LAST_NAME">Last Name</label>
+	   <input type="text" name="LAST_NAME" id="LAST_NAME"
            onkeyup="lookup()" size="15" tabindex="3">
-    <input type="text" name="RESIDENTIAL_ADDRESS1"
-           id="RESIDENTIAL_ADDRESS1" placeholder="Street address"
+    <label for="RESIDENTIAL_ADDRESS1">Street Address</label>
+	   <input type="text" name="RESIDENTIAL_ADDRESS1"
+           id="RESIDENTIAL_ADDRESS1"
            onkeyup="lookup()" tabindex="4">
-    <div id="results"></div>
+    <br/>
+    <br/>	
+    <div style="background-color: #FFFFFF;" align="center" id="results"></div>
   </form>
 </body>
