@@ -2,7 +2,7 @@ import os, glob
 
 path = os.path.join(os.path.dirname(__file__), 'data')
 dbpath = os.path.join(path, 'voters-xapian')
-datapaths = glob.glob(os.path.join(path, 'SWVF_*.TXT'))
+datapaths = glob.glob(os.path.join(path, 'SWVF*.CSV'))
 
 fields = {'RESIDENTIAL_ZIP': 'Z',
           'COUNTY_NUMBER': 'C',
